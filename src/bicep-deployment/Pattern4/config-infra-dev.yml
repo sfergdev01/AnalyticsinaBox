@@ -4,21 +4,23 @@ variables:
   ap_vm_image: windows-2019
 
   location: eastus
-  prefix: fasthack
-  postfix: uc25
+  prefix: dops
+  postfix: sc009
   environment: dev
+  core: dlh
 
   # Azure DevOps 
-  ado_service_connection_rg: Azure-ARM-Dev-SAPA
-
+  ado_service_connection_rg: Dev01-AzureSub01
+  
+  objectID: 469a7eb1-6b9d-4f20-a6d5-fed30d2dc293
 
   # IaC
-  baseName: $(prefix)$(postfix)$(environment)
-  resourceGroupName: P4-$(baseName)-RG #You also need to change the ResourceGroupname in main.bicep file
-  storageAccountName: $(prefix)st$(postfix)$(environment)
-  dataLakeAccountName: $(prefix)adl$(postfix)$(environment)
-  sqlServerName: $(prefix)-sql-$(postfix)-$(environment)
+  baseName: $(prefix)$(core)$(postfix)$(environment)
+  resourceGroupName: rg-$(baseName) #You also need to change the ResourceGroupname in main.bicep file
+  storageAccountName: st$(prefix)$(core)$(postfix)$(environment)
+  dataLakeAccountName: adl$(prefix)$(core)$(postfix)$(environment)
+  sqlServerName: sql-$(prefix)-$(core)-$(postfix)-$(environment)
   databaseName: sampledb
-  synapseWorkspace: $(prefix)-synapse-$(postfix)-$(environment)
-  synapsedatalakegen2name: $(prefix)adlssyn$(postfix)$(environment)
-  keyVaultName: $(prefix)-akv-$(postfix)-$(environment)
+  synapseWorkspace: syn-$(prefix)-$(core)-$(postfix)-$(environment)
+  synapsedatalakegen2name: adlssyn$(prefix)$(core)$(postfix)$(environment)
+  keyVaultName: kv-$(prefix)-$(core)-$(postfix)-$(environment)
