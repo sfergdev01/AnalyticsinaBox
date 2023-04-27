@@ -30,14 +30,14 @@ param tags object = {
   Name: prefix
 }
 
-var baseName  = '${prefix}${postfix}${env}'
-var resourceGroupName = 'P4-${baseName}-RG'
-var sqlServerName = '${prefix}-sql-${postfix}-${env}'
-var synapseWorkSpaceName = '${prefix}-synapse-${postfix}-${env}'
-var dataLakeg2SynapseName = '${prefix}adlssyn${postfix}${env}'
-var storageAccountName = '${prefix}st${postfix}${env}'
-var datalakeName = '${prefix}adl${postfix}${env}'
-var keyVaultName = '${prefix}-akv-${postfix}-${env}'
+var baseName  = '${prefix}${core}${postfix}${env}'
+var resourceGroupName = 'rg-${baseName}'
+var sqlServerName = 'sql-${prefix}-${core}-${postfix}-${env}'
+var synapseWorkSpaceName = '$syn-{prefix}-${core}-${postfix}-${env}'
+var dataLakeg2SynapseName = '$adlssyn{prefix}${core}${postfix}${env}'
+var storageAccountName = 'st${prefix}${core}${postfix}${env}'
+var datalakeName = 'adl${prefix}${core}${postfix}${env}'
+var keyVaultName = 'kv-${prefix}-${core}-${postfix}-${env}'
 
 resource rg 'Microsoft.Resources/resourceGroups@2020-06-01' = {
   name: resourceGroupName
