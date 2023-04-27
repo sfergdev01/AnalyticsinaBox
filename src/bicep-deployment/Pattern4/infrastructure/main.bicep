@@ -1,10 +1,11 @@
 targetScope = 'subscription'
 
-param location string = 'westus2'
+param location string = 'eastus'
 param prefix string
 param postfix string
 param env string 
 param objectID string
+param core string
 param sqladministratorLoginPassword string
 // param synapsedatalakegen2name string
 // param synapsedatalakegen2filesystemname string
@@ -19,12 +20,12 @@ var role = {
   StorageBlobDataReader: '${rdPrefix}/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1'
   StorageBlobDataContributor: '${rdPrefix}/ba92f5b4-2d11-453d-a403-e96b0029c9fe'
 }
-var sqladministratorLogin='rootuser'
+var sqladministratorLogin='rootuser846'
 
 param tags object = {
-  Owner: 'fasthack'
-  Project: 'fasthack'
-  Environment: env
+  Owner: 'dops'
+  Project: 'dlh'
+  Environment: dev
   Toolkit: 'bicep'
   Name: prefix
 }
